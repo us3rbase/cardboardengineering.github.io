@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardboard Engineering | Robotics Team</title>
+    <style>
+        :root {
+            --cardboard-brown: #d2b48c;
+            --dark-brown: #8b4513;
+            --tape-gray: #a9a9a9;
+            --paper-white: #fdf5e6;
+            --corrugated-texture: #c3a680;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--paper-white);
+            color: var(--dark-brown);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav {
+            background: var(--dark-brown);
+            padding: 1rem;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--cardboard-brown);
+            border-bottom: 8px solid var(--dark-brown);
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-box {
+            display: inline-block;
+            padding: 30px;
+            border: 5px solid var(--dark-brown);
+            background: white;
+            transform: rotate(-1deg);
+            box-shadow: 8px 8px 0px var(--dark-brown);
+            max-width: 600px;
+        }
+
+        section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .cardboard-bg {
+            background: 
+                linear-gradient(90deg, var(--corrugated-texture) 1px, transparent 1px) 0 0,
+                linear-gradient(var(--corrugated-texture) 1px, transparent 1px) 0 0;
+            background-size: 20px 20px;
+            background-color: var(--cardboard-brown);
+            padding: 40px;
+            border: 4px dashed var(--dark-brown);
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            border-bottom: 3px dashed var(--dark-brown);
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            align-items: stretch; 
+        }
+
+        .card {
+            background: white;
+            padding: 25px 20px 20px 20px;
+            border: 2px solid var(--dark-brown);
+            transition: transform 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            border: 2px solid var(--dark-brown);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: auto; 
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Contain is better for logos so they don't get cut off */
+            padding: 10px;
+        }
+
+        .img-label {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: var(--dark-brown);
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 30px;
+            background: rgba(169, 169, 169, 0.7);
+            border-left: 2px solid #999;
+            border-right: 2px solid #999;
+            z-index: 10;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            width: 100%;
+            background: var(--dark-brown);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            nav { gap: 10px; flex-wrap: wrap; }
+            nav a { font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Crew</a>
+        <a href="#sponsors">Sponsors</a>
+    </nav>
+
+    <header id="home">
+        <div class="logo-box">
+            <h1>📦 CARDBOARD ENGINEERING</h1>
+            <p>Building Ideas, One prototype at a time.</p>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="cardboard-bg">
+        <h2 class="section-title">The Blueprint</h2>
+        <p>Welcome to <strong>Cardboard Engineering</strong>. We are a small FTC robotics team based in Somerset, set on making innovative designs.</p>
+        <p>We believe that if you can't build it out of cardboard, you aren't ready to build it out of steel. We iterate fast, fail early, and win big.</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">Our Past Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>FTC DECODE Robot</h3>
+                    <p>A robot who overcame all challenges and came 3rd in the end.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://github.com/us3rbase/cardboardengineering.github.io/blob/main/2026_03_21_13q_Kleki.png?raw=true" alt="DECODE Robot">
+                    <span class="img-label">Taken at Comp</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>TO BE ADDED</h3>
+                    <p>Currently under development in the warehouse.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300x200?text=TBA" alt="TBA">
+                    <span class="img-label">wibbly wobbly</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Epstein Cleaner</h3>
+                    <p>A specialized design focused on high-efficiency cleaning and navigation.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300x200?text=Robot+Photo+3" alt="Auto-Nav">
+                    <span class="img-label">diddy ^</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crew -->
+    <section id="team" class="cardboard-bg">
+        <h2 class="section-title">The Crew</h2>
+        <div class="grid">
+            <div class="card"><div class="card-content"><strong>Sam G</strong><p>3D Designer / Builder</p></div></div>
+            <div class="card"><div class="card-content"><strong>Cade K</strong><p>Lead Coder</p></div></div>
+            <div class="card"><div class="card-content"><strong>Izzy L</strong><p>HR Team / Builder</p></div></div>
+            <div class="card"><div class="card-content"><strong>Harvey</strong><p>HR Team / Builder</p></div></div>
+            <div class="card"><div class="card-content"><strong>Lewis W</strong><p>Builder</p></div></div>
+            <div class="card"><div class="card-content"><strong>Sam L</strong><p>Builder / Designer</p></div></div>
+            <div class="card"><div class="card-content"><strong>Hedley D</strong><p>UNKNOWN</p></div></div>
+            <div class="card"><div class="card-content"><strong>Leo ?</strong><p>UNKNOWN</p></div></div>
+        </div>
+    </section>
+
+    <!-- Sponsors -->
+    <section id="sponsors">
+        <h2 class="section-title">Our Sponsors</h2>
+        <p style="margin-bottom: 30px;">Huge thanks to the organizations helping us build the future.</p>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-content">
+                    <h3>Frome Community College</h3>
+                    <p>Supporting our jouney the whole way through</p>
+                </div>
+                <div class="image-container">
+                    <!-- Replace with Sponsor Logo Image -->
+                    <img src="https://github.com/us3rbase/cardboardengineering.github.io/blob/main/OIP-2303215761.jpg?raw=true" alt="Sponsor 1">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Gold Partner</h3>
+                    <p>Providing the materials and tools for our prototypes.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300x200?text=Logo+2" alt="Sponsor 2">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Community Support</h3>
+                    <p>Helping us with local outreach and training events.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300x200?text=Logo+3" alt="Sponsor 3">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Cardboard Engineering | Built with ideas</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
